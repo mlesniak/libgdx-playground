@@ -2,12 +2,12 @@ package com.mlesniak.playground
 
 import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx.app
-import com.badlogic.gdx.Gdx.gl
 import com.badlogic.gdx.Gdx.input
 import com.badlogic.gdx.Input
-import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
+import com.badlogic.gdx.utils.ScreenUtils
 
+// TODO(mlesniak) use camera for resolution independent viewport.
 class Main : ApplicationAdapter() {
     private lateinit var batch: SpriteBatch
 
@@ -18,8 +18,7 @@ class Main : ApplicationAdapter() {
     override fun render() {
         handleGlobalInput()
 
-        gl.glClearColor(24/255f, 24/255f, 24/255f, 1f)
-        gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
+        ScreenUtils.clear(24 / 255f, 24 / 255f, 24 / 255f, 1f)
         batch.begin()
         batch.end()
     }
