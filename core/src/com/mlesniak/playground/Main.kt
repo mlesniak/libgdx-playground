@@ -18,7 +18,7 @@ class Main : ApplicationAdapter() {
     override fun render() {
         handleGlobalInput()
 
-        gl.glClearColor(0.095f, 0.095f, 0.095f, 1f)
+        gl.glClearColor(24/255f, 24/255f, 24/255f, 1f)
         gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
         batch.begin()
         batch.end()
