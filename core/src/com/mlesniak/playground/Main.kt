@@ -14,7 +14,6 @@ import com.badlogic.gdx.utils.viewport.FitViewport
 import com.badlogic.gdx.utils.viewport.Viewport
 import java.util.*
 
-// TODO(mlesniak) use camera for resolution independent viewport.
 class Main : ApplicationAdapter() {
     private lateinit var batch: SpriteBatch
     private lateinit var pixmap: Pixmap
