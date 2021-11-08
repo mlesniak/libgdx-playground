@@ -4,6 +4,8 @@ import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx.app
 import com.badlogic.gdx.Gdx.input
 import com.badlogic.gdx.Input
+import com.badlogic.gdx.graphics.Camera
+import com.badlogic.gdx.graphics.OrthographicCamera
 import com.badlogic.gdx.graphics.Pixmap
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
@@ -16,9 +18,11 @@ class Main : ApplicationAdapter() {
     private lateinit var pixmap: Pixmap
     private lateinit var texture: Texture
 
+    private lateinit var camera: Camera
+
     override fun create() {
         batch = SpriteBatch()
-        pixmap = Pixmap(800, 600, Pixmap.Format.RGB888)
+        pixmap = Pixmap(100, 100, Pixmap.Format.RGB888)
 
         // Randomize
         val rand = Random()
@@ -28,12 +32,15 @@ class Main : ApplicationAdapter() {
             }
         }
         texture = Texture(pixmap)
+
+        camera = OrthographicCamera(400f, 400f)
     }
 
     override fun render() {
         handleGlobalInput()
 
         ScreenUtils.clear(24 / 255f, 24 / 255f, 24 / 255f, 1f)
+        batch.projectionMatrix = camera.combined
         batch.begin()
         batch.draw(texture, 0f, 0f)
         batch.end()
